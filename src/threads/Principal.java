@@ -9,9 +9,9 @@ package threads;
 public class Principal {
 
     public static void main(String[] args) {
-        DemoThread t1 = new DemoThread("Pedro");
-        DemoThread t2 = new DemoThread("Pablo");
-        DemoThread t3 = new DemoThread("Juan");
+        Thread t1 = new Thread(new DemoThread("Pedro"));
+        Thread t2 = new Thread(new DemoThread("Pablo"));
+        Thread t3 = new Thread(new DemoThread("Juan"));
         t1.start();
         t2.start();
         t3.start();
