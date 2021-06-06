@@ -9,7 +9,10 @@ package threads;
 public class Principal {
 
     public static void main(String[] args) throws InterruptedException {
-        new VentanaDemora();
+        DemoThread t1 = new DemoThread("Pablo");
+        DemoThread t2 = new DemoThread("Pedro");
+        t1.start();
+        t2.start();
     }
 
 }

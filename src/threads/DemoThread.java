@@ -6,7 +6,7 @@ package threads;
  * https://www.youtube.com/c/CharlyCimino Encontrá más código en mi repo de
  * GitHub: https://github.com/CharlyCimino
  */
-public class DemoThread implements Runnable {
+public class DemoThread extends Thread {
 
     private String nombre;
 
@@ -14,13 +14,11 @@ public class DemoThread implements Runnable {
         this.nombre = nombre;
     }
 
+    @Override
     public void run() {
-        try {
-            int x = (int) (Math.random() * 5000);
-            Thread.sleep(x);
-            System.out.println("Soy: " + nombre + " (" + x + ")");
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        for (int i = 0; i < 5; i++) {
+            System.out.println(nombre + " - " + i);
+            Thread.yield();
         }
     }
 }
