@@ -32,10 +32,22 @@ public class VentanaDemora extends Frame {
 
     class EscuchaBoton implements ActionListener {
 
+        @Override
         public void actionPerformed(ActionEvent e) {
+            boton.setEnabled(false);
+            TareaBoton t = new TareaBoton();
+            t.start();
+        }
+    }
+
+    class TareaBoton extends Thread {
+
+        @Override
+        public void run() {
             try {
                 Thread.sleep(10000);
                 System.out.println("Termino la espera...!");
+                boton.setEnabled(true);
             } catch (Exception ex) {
                 ex.printStackTrace();
                 throw new RuntimeException(ex);
